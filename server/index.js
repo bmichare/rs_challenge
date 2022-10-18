@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const cluster = require("cluster");
@@ -5,6 +6,8 @@ const numCPUs = require("os").cpus().length;
 
 const isDev = process.env.NODE_ENV !== "production";
 const PORT = process.env.PORT || 5000;
+
+const apiRouter = require("./routes/api");
 
 // Multi-process to utilize all CPU cores.
 if (!isDev && cluster.isMaster) {
@@ -27,10 +30,7 @@ if (!isDev && cluster.isMaster) {
   app.use(express.static(path.resolve(__dirname, "../react-ui/build")));
 
   // Answer API requests.
-  app.get("/api", (req, res) => {
-    res.set("Content-Type", "application/json");
-    res.send('{"message":"Hello from the custom server!"}');
-  });
+  app.use("/api", apiRouter);
 
   // All remaining requests return the React app, so it can handle routing.
   app.get("*", (request, response) => {
@@ -39,10 +39,21 @@ if (!isDev && cluster.isMaster) {
     );
   });
 
+  // Global error handler
+  app.use((err, req, res, next) => {
+    const defaultErr = {
+      log: "Express error handler caught unknown middleware error",
+      status: 500,
+      message: { err: "An error occurred" },
+    };
+    const errorObj = Object.assign(defaultErr, err);
+    console.error(errorObj.log);
+    res.status(errorObj.status).json(errorObj.message);
+  });
+
   app.listen(PORT, () => {
     console.error(
-      `Node ${
-        isDev ? "dev server" : `cluster worker ${process.pid}`
+      `Node ${isDev ? "dev server" : `cluster worker ${process.pid}`
       }: listening on port ${PORT}`
     );
   });
