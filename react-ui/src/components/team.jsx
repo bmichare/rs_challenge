@@ -1,12 +1,18 @@
-import { React, useState } from "react";
-import { Button, Grid2 } from "@mui/material";
+import { React } from "react";
+import { Card } from "@mui/material";
+import basketball from "../assets/basketball.png";
+import "./styles/Team.css"
 
-function Team() {
+const Team = (props) => {
 
   return (
-    <Grid2 className="teamBox">
-      {/* {this.props.full_name} */}
-    </Grid2>
+    <Card
+      variant="outlined"
+      className="teamCard"
+    >
+      <img src={basketball} className="basketball" alt="basketball" />
+      <p>{props.team.full_name}</p>
+    </Card>
   );
 }
 
