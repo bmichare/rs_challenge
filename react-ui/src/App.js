@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { Button } from "@mui/material";
-// import teamsContainer from "./components/teamsContainer";
+import TeamsPage from "./components/TeamsPage";
 import rsLogo from "./assets/logo-with-name.png";
 import "./App.css";
 
@@ -33,14 +33,7 @@ function App() {
         >
           Ask a Question
         </Button>
-        <Button
-          variant="contained"
-          size="large"
-          sx={{ m: 2, bgcolor: "#00003C" }}
-          disableElevation
-        >
-          NBA teams
-        </Button>
+        <TeamsPage />
       </main>
     </div>
   );
