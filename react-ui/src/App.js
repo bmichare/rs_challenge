@@ -1,9 +1,12 @@
-import React from "react";
+import { React, useState } from "react";
 import { Button } from "@mui/material";
-import rsLogo from "./logo-with-name.png";
+// import teamsContainer from "./components/teamsContainer";
+import rsLogo from "./assets/logo-with-name.png";
 import "./App.css";
 
 function App() {
+  const [teams, setTeams] = useState();
+
   return (
     <div className="App">
       <header className="App-header">
@@ -29,6 +32,14 @@ function App() {
           disableElevation
         >
           Ask a Question
+        </Button>
+        <Button
+          variant="contained"
+          size="large"
+          sx={{ m: 2, bgcolor: "#00003C" }}
+          disableElevation
+        >
+          NBA teams
         </Button>
       </main>
     </div>
