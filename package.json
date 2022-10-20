@@ -7,7 +7,8 @@
   },
   "scripts": {
     "start": "node server",
-    "build": "cd react-ui/ && npm install && npm run build"
+    "build": "cd react-ui/ && npm install && npm run build",
+    "test": "jest --verbose ./server"
   },
   "cacheDirectories": [
     "node_modules",
@@ -42,7 +43,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "jest": "^25.5.4",
     "prettier": "^2.7.1",
+    "supertest": "^6.3.0",
     "typescript": "^4.7.4"
   }
 }
