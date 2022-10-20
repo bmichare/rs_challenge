@@ -1,4 +1,9 @@
-import { React, useState, useEffect } from "react";
+/**
+ * @file Renders weather data when a city (Team) is selected
+ * @param selectedCity city of selected Team
+ */
+
+import React, { useState, useEffect } from "react";
 import { CircularProgress } from "@mui/material";
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 import "./styles/WeatherDisplay.css"
@@ -9,7 +14,7 @@ const WeatherDisplay = (props) => {
   useEffect(() => {
     if (!props.selectedCity) setWeatherData(null);
     else {
-      // Loading icon renders when weatherData === false
+      // CircularProgress renders when weatherData === false
       setWeatherData(false);
 
       try {
@@ -25,6 +30,7 @@ const WeatherDisplay = (props) => {
   }, [props.selectedCity])
 
   return (
+    // Renders loading icon when weatherData === false (aka is in loading state)
     weatherData === false ? <CircularProgress size="217.51px" /> :
       < div
         variant="outlined"

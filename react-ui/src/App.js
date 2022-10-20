@@ -1,14 +1,12 @@
-import { React, useState } from "react";
+import React from "react";
 import { Button } from "@mui/material";
 import TeamsPage from "./components/TeamsPage";
 import rsLogo from "./assets/logo-with-name.png";
 import "./App.css";
 
 function App() {
-  const [teams, setTeams] = useState();
-
   return (
-    <div className="App">
+    <div className="App" title="App">
       <header className="App-header">
         <img src={rsLogo} className="App-logo" alt="logo" />
       </header>

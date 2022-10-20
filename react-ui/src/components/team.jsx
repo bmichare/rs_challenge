@@ -1,19 +1,27 @@
-import { React } from "react";
+/**
+ * @file Renders card for an NBA team
+ * @param Team Team Data from NBA API 
+ * @param setSelectedCity Invoked upon click. Sets state within TeamsPage   
+ */
+
+import React from "react";
 import { Card } from "@mui/material";
-import basketball from "../assets/basketball.png";
+import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
+
 import "./styles/Team.css"
 
 const Team = (props) => {
   return (
     <Card
+      title="teamCard"
       variant="outlined"
       className="teamCard"
       sx={{
-        "border-radius": "10px"
+        "borderRadius": "10px"
       }}
       onClick={() => props.setSelectedCity(props.team.city)}
     >
-      <img src={basketball} className="basketball" alt="basketball" />
+      <SportsBasketballIcon title="basketballIcon" />
       <p>{props.team.full_name}</p>
     </Card >
   );

@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .teamCard:hover {
@@ -13,8 +14,4 @@
 p {
   text-align: center;
   margin: 0px;
-}
-
-.teamCard img {
-  max-width: 50px;
 }

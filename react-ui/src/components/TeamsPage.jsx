@@ -1,4 +1,9 @@
-import { React, useState } from "react";
+/**
+ * @file Stateful component that renders all Team cards, 
+ * WeatherDisplay, and button to request NBA teams
+ */
+
+import React, { useState } from "react";
 import { Button } from "@mui/material";
 import Team from "./Team"
 import WeatherDisplay from "./WeatherDisplay";
