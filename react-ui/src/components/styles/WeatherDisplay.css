@@ -1,6 +1,7 @@
 .weatherDisplay {
   display: flex;
-  background: #ffffff;
+  /* background: rgb(101, 77, 238); */
+  background: linear-gradient(rgba(101, 77, 238, 1) 25%, rgba(81, 228, 255, 1) 75%);
   border-radius: 15px;
   padding: 20px;
   margin: auto auto;

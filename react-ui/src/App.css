@@ -12,3 +12,7 @@
   max-width: 40vw;
   margin: 5vh 0;
 }
+
+main {
+  display: flex;
+}

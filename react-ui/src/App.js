@@ -28,7 +28,7 @@ function App() {
           target="_blank"
           href="mailto:paul@realsynch.com?subject=RealSynch Developer Challenge"
           size="large"
-          sx={{ m: 2, bgcolor: "#00003C" }}
+          sx={{ m: 2, bgcolor: "#00003C", textAlign: "center" }}
           disableElevation
         >
           Ask a Question
