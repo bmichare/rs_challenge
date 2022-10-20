@@ -1,11 +1,12 @@
 const express = require("express");
 
 // NBA controllers
-const teamsController = require("../../controllers/nba/teams");
+const nbaController = require("../../controllers/nba");
 
 const nbaRouter = express.Router();
 
-nbaRouter.get("/teams", teamsController.get, (req, res) => {
+nbaRouter.get("/", nbaController.get, (req, res) => {
+  // console.log("nba teams requested");
   res.set("Content-Type", "application/json");
   res.json(res.locals.teams);
 });

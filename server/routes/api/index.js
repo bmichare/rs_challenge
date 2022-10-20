@@ -1,10 +1,11 @@
 const express = require("express");
-
 const nbaRouter = require("./nba");
+const weatherRouter = require("./weather");
 
 const apiRouter = express.Router();
 
 apiRouter.use("/nba", nbaRouter);
+apiRouter.use("/weather", weatherRouter);
 
 // Answer API requests.
 apiRouter.get("/", (req, res) => {
