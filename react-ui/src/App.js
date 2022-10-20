@@ -33,8 +33,8 @@ function App() {
         >
           Ask a Question
         </Button>
-        <TeamsPage />
       </main>
+      <TeamsPage />
     </div>
   );
 }

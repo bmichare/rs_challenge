@@ -1,15 +1,16 @@
 import { React, useState } from "react";
 import { Button } from "@mui/material";
 import Team from "./Team"
+import WeatherDisplay from "./WeatherDisplay";
 
 import "./styles/TeamsPage.css";
 
 
 function TeamsPage() {
   const [teamsList, setTeamsList] = useState([]);
+  const [selectedCity, setSelectedCity] = useState(null);
 
   const getTeams = async () => {
-    console.log(teamsList)
     const res = await fetch("/api/nba");
     const teams = await res.json();
     setTeamsList(teams.data);
@@ -19,12 +20,13 @@ function TeamsPage() {
     <Team
       team={team}
       key={team.abbreviation}
-    >
-    </Team>
+      setSelectedCity={setSelectedCity}
+    />
   );
 
   return (
     <div className="TeamsPage">
+      <WeatherDisplay selectedCity={selectedCity} />
       <Button
         variant="contained"
         size="large"
@@ -37,7 +39,6 @@ function TeamsPage() {
       <div className="teamsContainer">
         {teamsList.map((team) => teamMaker(team))}
       </div>
-
     </div>
   );
 

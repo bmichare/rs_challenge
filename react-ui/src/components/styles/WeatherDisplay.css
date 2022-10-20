@@ -1,0 +1,42 @@
+.weatherDisplay {
+  display: flex;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  margin: auto auto;
+  margin-top: 16px;
+  max-height: 250px;
+  max-width: 500px;
+}
+
+.weatherContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: stretch;
+}
+
+.weatherDetails {
+  color: #112340;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#weatherIcon {
+  height: 20%;
+  width: 20%;
+}
+
+#locationName {
+  text-align: center;
+  margin: 0px;
+}
+
+#weatherInfo {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#loadingIcon {
+  height: 250px;
+}
