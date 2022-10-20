@@ -1,3 +1,8 @@
+/**
+ * @file api Router
+ * routes to nba & weather
+ */
+
 const express = require("express");
 const nbaRouter = require("./nba");
 const weatherRouter = require("./weather");

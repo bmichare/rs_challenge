@@ -47,7 +47,7 @@ if (!isDev && cluster.isMaster) {
       message: { err: "An error occurred" },
     };
     const errorObj = Object.assign(defaultErr, err);
-    console.error(errorObj.log);
+    console.log(errorObj.log);
     res.status(errorObj.status).json(errorObj.message);
   });
 

@@ -1,10 +1,14 @@
+/**
+ * @file Middleware for balldontlie API
+ * @method get grabs list of all active NBA teams
+ */
+
 const fetch = require("node-fetch");
 
 const url = "https://www.balldontlie.io/api/v1/";
-
 const nbaController = {};
 
-// API call to get list of NBA teams
+// Grabs list of all active NBA teams
 nbaController.get = async (req, res, next) => {
   try {
     const resource = "teams";
@@ -15,7 +19,7 @@ nbaController.get = async (req, res, next) => {
     next();
   } catch (err) {
     next({
-      log: `teamsController.get: ERROR: ${typeof err === "object" ? JSON.stringify(err) : err}`,
+      log: `ERROR: teamsController.get: ${err}`,
       message: { err: "Error grabbing teams. Check server logs for details" },
     });
   }

@@ -29,8 +29,8 @@ weatherController.get = async (req, res, next) => {
     next();
   } catch (err) {
     next({
-      log: `teamsController.get: ERROR: ${typeof err === "object" ? JSON.stringify(err) : err}`,
-      message: { err: "Error grabbing teams. Check server logs for details" },
+      log: `ERROR in weatherController.get: ${err}`,
+      message: { err: "Error grabbing weather. Check server logs for details" },
     });
   }
 };
