@@ -4,6 +4,7 @@
  */
 
 const fetch = require("node-fetch");
+const apiCache = require("./apiCache")
 
 const url = "https://www.balldontlie.io/api/v1/";
 const nbaController = {};
@@ -12,8 +13,13 @@ const nbaController = {};
 nbaController.get = async (req, res, next) => {
   try {
     const resource = "teams";
-    const response = await fetch(url.concat(resource));
-    const teamsData = await response.json();
+    let teamsData = apiCache.get("teams");
+
+    if (!teamsData) {
+      const response = await fetch(url.concat(resource));
+      teamsData = await response.json();
+      apiCache.set("teams", teamsData);
+    }
 
     res.locals.teams = teamsData;
     next();
@@ -23,6 +29,6 @@ nbaController.get = async (req, res, next) => {
       message: { err: "Error grabbing teams. Check server logs for details" },
     });
   }
-};
+}
 
 module.exports = nbaController;

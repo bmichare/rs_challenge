@@ -7,7 +7,7 @@ app.use("/", apiRouter);
 
 describe("Index Route", () => {
   test("responds to GET /", async () => {
-    const res = await request(app).get("/nba");
+    const res = await request(app).get("/");
     expect(res.statusCode).toBe(200);
     expect(res.header["content-type"]).toBe("application/json; charset=utf-8");
     expect(res.text).toBe('{"message":"Hello from the custom server!"}');
