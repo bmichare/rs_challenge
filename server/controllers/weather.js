@@ -18,7 +18,7 @@ weatherController.get = async (req, res, next) => {
     const params = `q=${req.query.city}&aqi=no`;
     const url = rootUrl.concat(resource, params);
 
-    let weatherData = apiCache.get("weather");
+    let weatherData = apiCache.get(req.query.city);
     if (!weatherData) {
       const response = await fetch(url.concat(resource), {
         headers: {
@@ -26,7 +26,7 @@ weatherController.get = async (req, res, next) => {
         },
       });
       weatherData = await response.json();
-      apiCache.set("weather", weatherData);
+      apiCache.set(req.query.city, weatherData);
     }
 
     res.locals.weather = weatherData;

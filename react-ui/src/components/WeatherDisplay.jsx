@@ -5,7 +5,6 @@
 
 import React, { useState, useEffect } from "react";
 import { CircularProgress } from "@mui/material";
-import ThermostatIcon from '@mui/icons-material/Thermostat';
 import "./styles/WeatherDisplay.css"
 
 const WeatherDisplay = (props) => {
@@ -36,10 +35,10 @@ const WeatherDisplay = (props) => {
         variant="outlined"
         className="weatherDisplay"
       >
-        <ThermostatIcon variant="two-tone" id="weatherIcon" />
         <div className="weatherContent">
           <h1 id="locationName">{weatherData ? weatherData.location.name : "Select a city to get weather info"}</h1>
-          <h3 id="weatherStatus">{weatherData ? weatherData.current.condition.text : ""}</h3>
+
+          <h3 id="weatherStatus">{weatherData ? weatherData.current.condition.text : ""} </h3>
           <div className="weatherDetails">
             <div id="weatherInfo">
               <p>Temperature: </p>
