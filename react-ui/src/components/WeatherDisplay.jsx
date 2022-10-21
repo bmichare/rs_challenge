@@ -30,7 +30,7 @@ const WeatherDisplay = (props) => {
 
   return (
     // Renders loading icon when weatherData === false (aka is in loading state)
-    weatherData === false ? <CircularProgress size="217.51px" /> :
+    weatherData === false ? <CircularProgress size="201.51px" /> :
       < div
         variant="outlined"
         className="weatherDisplay"

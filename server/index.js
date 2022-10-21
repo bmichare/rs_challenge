@@ -44,7 +44,7 @@ if (!isDev && cluster.isMaster) {
     const defaultErr = {
       log: "Express error handler caught unknown middleware error",
       status: 500,
-      message: { err: "An error occurred" },
+      message: { err: "An error occurred: check server logs for more details" },
     };
     const errorObj = Object.assign(defaultErr, err);
     console.log(errorObj.log);
